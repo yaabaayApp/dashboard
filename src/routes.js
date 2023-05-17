@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes } from 'react-router-dom'
+
 // document.location.href = 'http://localhost:3000/#/dashboard'
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 

@@ -23,7 +23,7 @@ const AppContent = () => {
               )
             )
           })}
-          <Route path="/admin" element={<Navigate to="dashboard" replace />} />
+          {/* <Route path="/admin" element={<Navigate to="dashboard" replace />} /> */}
         </Routes>
       </Suspense>
     </CContainer>
