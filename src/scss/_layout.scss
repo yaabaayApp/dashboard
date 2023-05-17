@@ -5,6 +5,6 @@
   @include transition(padding .15s);
 }
 body {
-  background: url('../assets/bg.jpg') repeat scroll top center transparent;
+  background: url("../assets/bg.jpg") repeat scroll top center transparent;
 }
 a.grey-color, a.grey-color:hover { color: #313131; }
