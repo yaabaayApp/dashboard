@@ -79,6 +79,7 @@ module.exports = {
   //settings
   getAllSettings: `${contentApi}/getAllSettings`,
   saveSettings: `${contentApi}/settingSave`,
+  getPrivacy: `${contentApi}/getPrivacy`,
   //Dashboard
   getLeads: `${userApi}/getLeads`,
   getAgents: `${userApi}/getAgents`,
