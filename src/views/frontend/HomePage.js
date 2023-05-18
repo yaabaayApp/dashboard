@@ -53,7 +53,10 @@ export default function HomePage() {
             </CRow>
             <p className='mt-5'>&nbsp;</p>
             <h5>Provide all tourist services to make your experience (A trip of a lifetime).</h5>
-            <p>Contact us : <a className='text-decoration-none grey-color' href='mailto:info@yaabaay.com'>info@yaabaay.com</a></p>
+            <p>
+              Contact us : <a className='text-decoration-none grey-color' href='mailto:info@yaabaay.com'>info@yaabaay.com</a> - &nbsp;
+              <a className='text-decoration-none grey-color' href='./privacy'>Privacy policy</a>
+            </p>
         </CCol>
         <CCol xs={2}></CCol>
       </CRow>

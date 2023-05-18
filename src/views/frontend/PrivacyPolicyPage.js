@@ -16,7 +16,7 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
-
+import Parser from 'html-react-parser';
 import api from '../../api/api'
 
 //
@@ -30,7 +30,8 @@ export default function PrivacyPolicyPage() {
       // console.log(response.data?.data.emailOrPhone) // CORRECT FORMAT
       // console.log(response.data?.data) // all data
       let settingsData = response.data?.data
-      setContent(response.data?.data.privacy)
+      console.log(settingsData)
+      setContent(settingsData.privacy)
     } catch (e) {
       console.log(e)
     }
@@ -49,7 +50,7 @@ export default function PrivacyPolicyPage() {
             <p>&nbsp;</p>
             <h3><center>Yaabaay Privacy Policy</center></h3>
             <p>&nbsp;</p>
-            {content}
+            {Parser(content)}
           </CCol>
           <CCol lg={1} xs={12} />
         </CRow>
