@@ -65,7 +65,7 @@ export default function Control() {
 
   const editFAQ = async (FAQId) => {
     try {
-      navigate(`/admin/${api.editFAQ}${FAQId}`)
+      navigate(`/admin/editFAQ/${FAQId}`)
     } catch (e) {
       console.log(e)
     }

@@ -72,7 +72,7 @@ export default function Control() {
   }
   const categoryOrderEdit = async (id) => {
     try {
-      navigate(`/admin/${api.categoryOrderEdit}${id}`)
+      navigate(`/admin/categoryOrderEdit/${id}`)
     } catch (e) {
       console.log(e)
     }

@@ -115,16 +115,16 @@ const _nav = [
         name: 'Intros Control',
         to: '/admin/introControl',
       },
-      {
-        component: CNavItem,
-        name: 'Add Slider',
-        to: '/admin/sliderCreate',
-      },
-      {
-        component: CNavItem,
-        name: 'Slider Control',
-        to: '/admin/slidersControl',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Add Slider',
+      //   to: '/admin/sliderCreate',
+      // },
+      // {
+      //   component: CNavItem,
+      //   name: 'Slider Control',
+      //   to: '/admin/slidersControl',
+      // },
     ],
   },
   {
