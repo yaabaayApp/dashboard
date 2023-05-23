@@ -117,7 +117,7 @@ export default function CreateOrEdit() {
         setAlertText('Record created successfully!')
         setAlertShow(true)
         setAlertType('success')
-        navigate('/categoryControl')
+        navigate('/admin/categoryControl')
       })
     } catch (e) {
       setAlertText(e.response?.data?.message)

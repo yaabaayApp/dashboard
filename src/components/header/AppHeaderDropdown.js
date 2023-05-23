@@ -74,7 +74,7 @@ const AppHeaderDropdown = () => {
         {/*    42*/}
         {/*  </CBadge>*/}
         {/*</CDropdownItem>*/}
-        <CDropdownItem href='#/contactUsControl'>
+        <CDropdownItem href='/admin/contactUsControl'>
           <FontAwesomeIcon icon={faEnvelope} className='me-2' />
           Inbox
           <CBadge color='danger' className='ms-2'>
@@ -96,11 +96,11 @@ const AppHeaderDropdown = () => {
         {/*  </CBadge>*/}
         {/*</CDropdownItem>*/}
         <CDropdownHeader className='bg-light fw-semibold py-2'>Settings</CDropdownHeader>
-        <CDropdownItem href={`#/profile/${adminId}`}>
+        {/* <CDropdownItem href={`#/profile/${adminId}`}>
           <FontAwesomeIcon icon={faUserCircle} className='me-2' />
           Profile
-        </CDropdownItem>
-        <CDropdownItem href='#/settingsControl'>
+        </CDropdownItem> */}
+        <CDropdownItem href='/admin/settingsControl'>
           <FontAwesomeIcon icon={faCog} className='me-2' />
           Settings
         </CDropdownItem>

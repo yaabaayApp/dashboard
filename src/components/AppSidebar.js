@@ -15,6 +15,8 @@ import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
 import navigation from '../_nav'
 
+const logo = require('../assets/logo-main-white.png');
+
 const AppSidebar = () => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
@@ -30,8 +32,7 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        <img src={logo} height={35} />
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
