@@ -29,12 +29,12 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Create Order',
-        to: './admin/categoryOrderCreate',
+        to: '/admin/categoryOrderCreate',
       },
       {
         component: CNavItem,
         name: 'Leads Control',
-        to: './admin/categoryOrderControl',
+        to: '/admin/categoryOrderControl',
       },
     ],
   },
@@ -46,22 +46,22 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Add User',
-        to: './admin/userCreate',
+        to: '/admin/userCreate',
       },
       {
         component: CNavItem,
         name: 'Users Control',
-        to: './admin/userControl/customer',
+        to: '/admin/userControl/customer',
       },
       {
         component: CNavItem,
         name: 'Agent Control',
-        to: './admin/userControl/agent',
+        to: '/admin/userControl/agent',
       },
       {
         component: CNavItem,
         name: 'Admins Control',
-        to: './admin/userControl/admin',
+        to: '/admin/userControl/admin',
       },
     ],
   },
@@ -74,12 +74,12 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Create Service',
-        to: './admin/addCategory',
+        to: '/admin/addCategory',
       },
       {
         component: CNavItem,
         name: 'Services Control',
-        to: './admin/categoryControl',
+        to: '/admin/categoryControl',
       },
     ],
   },
@@ -96,7 +96,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Inbox',
-        to: './admin/contactUsControl',
+        to: '/admin/contactUsControl',
       },
     ],
   },
@@ -108,22 +108,22 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Add Intro',
-        to: './admin/introCreate',
+        to: '/admin/introCreate',
       },
       {
         component: CNavItem,
         name: 'Intros Control',
-        to: './admin/introControl',
+        to: '/admin/introControl',
       },
       {
         component: CNavItem,
         name: 'Add Slider',
-        to: './admin/sliderCreate',
+        to: '/admin/sliderCreate',
       },
       {
         component: CNavItem,
         name: 'Slider Control',
-        to: './admin/slidersControl',
+        to: '/admin/slidersControl',
       },
     ],
   },
@@ -135,12 +135,12 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Add FAQ',
-        to: './admin/createFAQ',
+        to: '/admin/createFAQ',
       },
       {
         component: CNavItem,
         name: 'FAQs Control',
-        to: './admin/FAQsControl',
+        to: '/admin/FAQsControl',
       },
     ],
   },
@@ -152,7 +152,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Settings',
-        to: './admin/settingsControl',
+        to: '/admin/settingsControl',
       },
     ],
   },
