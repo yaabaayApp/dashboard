@@ -99,7 +99,7 @@ export default function Control() {
 
   const userEdit = async (id) => {
     try {
-      navigate(`/admin/${api.userEdit}${id}`)
+      navigate(`/admin/userEdit/${id}`)
     } catch (e) {
       console.log(e)
     }

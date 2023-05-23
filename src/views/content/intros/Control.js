@@ -68,7 +68,7 @@ export default function Control() {
   const introEdit = async (introId) => {
     try {
 
-      navigate(`/admin/${api.introEdit}${introId}`)
+      navigate(`/admin/introEdit/${introId}`)
     } catch (e) {
       console.log(e)
     }

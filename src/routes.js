@@ -58,9 +58,9 @@ const routes = [
   { path: '/admin/introEdit/:introId', name: 'Edit Intro', element: introCreateOrEdit },
   { path: '/admin/introControl', name: 'Intros  Control', element: introControl },
 
-  { path: '/admin/sliderCreate', name: 'Add Slider', element: sliderCreateOrEdit },
-  { path: '/admin/sliderEdit/:sliderId', name: 'Edit Slider', element: sliderCreateOrEdit },
-  { path: '/admin/slidersControl', name: 'Slider Control', element: slidersControl },
+  // { path: '/admin/sliderCreate', name: 'Add Slider', element: sliderCreateOrEdit },
+  // { path: '/admin/sliderEdit/:sliderId', name: 'Edit Slider', element: sliderCreateOrEdit },
+  // { path: '/admin/slidersControl', name: 'Slider Control', element: slidersControl },
 
   { path: '/admin/createFAQ', name: 'Add Frequently Asked Question', element: FAQsCreateOrEdit },
   { path: '/admin/editFAQ/:FAQId', name: 'Edit Frequently Asked Question', element: FAQsCreateOrEdit },

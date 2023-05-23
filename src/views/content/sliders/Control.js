@@ -70,8 +70,7 @@ export default function Control() {
 
   const sliderEdit = async (sliderId) => {
     try {
-
-      navigate(`/admin/${api.sliderEdit}${sliderId}`)
+      navigate(`/admin/sliderEdit/${sliderId}`)
     } catch (e) {
       console.log(e)
     }
