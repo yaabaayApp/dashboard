@@ -148,7 +148,7 @@ export default function Control() {
                             )}
 
                           </CTableDataCell>
-                          <CTableDataCell>{category.name?.en}</CTableDataCell>
+                          <CTableDataCell>{category.name}</CTableDataCell>
                           {mainCategory ? '' :
                             <CTableDataCell>
                               <Link to={`/admin/categoryControl/${category._id}`}>Subs</Link>
