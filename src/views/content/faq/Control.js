@@ -113,8 +113,8 @@ export default function Control() {
                         <CTableRow id={`faq-${faq._id}`} key={index}>
                           <CTableHeaderCell scope='row'>{index + 1}</CTableHeaderCell>
 
-                          <CTableDataCell>{faq.question}</CTableDataCell>
-                          <CTableDataCell>{faq.answer}</CTableDataCell>
+                          <CTableDataCell>{faq.question.en}</CTableDataCell>
+                          <CTableDataCell>{faq.answer.en}</CTableDataCell>
                           <CTableDataCell>{faq.sort}</CTableDataCell>
 
                           <CTableDataCell>

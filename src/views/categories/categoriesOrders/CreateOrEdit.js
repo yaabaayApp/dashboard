@@ -97,7 +97,7 @@ export default function CreateOrEdit() {
       setAlertText('Record created successfully!')
       setAlertShow(true)
       setAlertType('success')
-      navigate('/categoryOrderControl')
+      navigate('/admin/categoryOrderControl')
     } catch (e) {
       setAlertText(e.response?.data?.message);
       setAlertShow(true);
@@ -157,7 +157,7 @@ export default function CreateOrEdit() {
                     {categories.length > 0 &&
                       categories.map((category) => (
                         <option key={category?._id} value={category?._id || ''}>
-                          {category.name}
+                          {category.name?.en}
                         </option>
                       ))}
                   </CFormSelect>
