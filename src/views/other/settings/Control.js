@@ -125,7 +125,25 @@ export default function Control() {
                     active={activeKey === 3}
                     onClick={() => setActiveKey(3)}
                   >
-                    Content
+                    About
+                  </CNavLink>
+                </CNavItem>
+                <CNavItem>
+                  <CNavLink
+                    href="javascript:void(0);"
+                    active={activeKey === 4}
+                    onClick={() => setActiveKey(4)}
+                  >
+                    Privacy Policy
+                  </CNavLink>
+                </CNavItem>
+                <CNavItem>
+                  <CNavLink
+                    href="javascript:void(0);"
+                    active={activeKey === 5}
+                    onClick={() => setActiveKey(5)}
+                  >
+                    Terms and Conditions
                   </CNavLink>
                 </CNavItem>
                 {/*<CNavItem>*/}
@@ -249,34 +267,124 @@ export default function Control() {
                 </CTabPane>
                 <CTabPane role="tabpanel" aria-labelledby="contact-tab" visible={activeKey === 3}>
                   {/* TAB 3 */}
+
+                  {/* About us */}
                   <CCol lg={12} xs={12}>
-                    <CFormLabel htmlFor="adminRole">About</CFormLabel>
+                    <CFormLabel htmlFor="">About [EN]</CFormLabel>
                     <CFormTextarea
-                      name='answer'
-                      value={settings?.about ?? ''}
-                      onChange={(e) => handleChange('about', e.target.value)}
+                      name=''
+                      value={settings?.about?.en ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'en': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
                   <CCol lg={12} xs={12}>
-                    <CFormLabel htmlFor="adminRole">Privacy Policy</CFormLabel>
+                    <CFormLabel htmlFor="">About [AR]</CFormLabel>
                     <CFormTextarea
-                      name='answer'
-                      value={settings?.privacy ?? ''}
-                      onChange={(e) => handleChange('privacy', e.target.value)}
+                      name=''
+                      value={settings?.about?.ar ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'ar': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
                   <CCol lg={12} xs={12}>
-                    <CFormLabel htmlFor="adminRole">Terms & Conditions</CFormLabel>
+                    <CFormLabel htmlFor="">About [FR]</CFormLabel>
                     <CFormTextarea
-                      name='answer'
-                      value={settings?.terms ?? ''}
-                      onChange={(e) => handleChange('terms', e.target.value)}
+                      name=''
+                      value={settings?.about?.fr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'fr': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">About [TR]</CFormLabel>
+                    <CFormTextarea
+                      name=''
+                      value={settings?.about?.tr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'tr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
                 </CTabPane>
+                <CTabPane role="tabpanel" aria-labelledby="contact-tab" visible={activeKey === 4}>
+                  {/* Privacy Policy  */}
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Privacy Policy [EN]</CFormLabel>
+                    <CFormTextarea
+                      name='answer'
+                      value={settings?.privacy?.en ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'en': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Privacy Policy [AR]</CFormLabel>
+                    <CFormTextarea
+                      name='answer'
+                      value={settings?.privacy?.ar ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'ar': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Privacy Policy  [FR]</CFormLabel>
+                    <CFormTextarea
+                      name='answer'
+                      value={settings?.privacy?.fr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'fr': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Privacy Policy  [TR]</CFormLabel>
+                    <CFormTextarea
+                      name='answer'
+                      value={settings?.privacy?.tr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'tr': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                </CTabPane>
+                <CTabPane role="tabpanel" aria-labelledby="contact-tab" visible={activeKey === 5}>
+                  {/* Terms & Conditions */}
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Terms & Conditions [EN]</CFormLabel>
+                    <CFormTextarea
+                      name='answer'
+                      value={settings?.terms?.en ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'en': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Terms & Conditions [AR]</CFormLabel>
+                    <CFormTextarea
+                      name=''
+                      value={settings?.terms?.ar ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'ar': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Terms & Conditions [FR]</CFormLabel>
+                    <CFormTextarea
+                      name=''
+                      value={settings?.terms?.fr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'fr': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                  <CCol lg={12} xs={12}>
+                    <CFormLabel htmlFor="">Terms & Conditions [FR]</CFormLabel>
+                    <CFormTextarea
+                      name=''
+                      value={settings?.terms?.tr ?? ''}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'tr': e.target.value} })}
+                      rows='3'
+                      placeholder=''/>
+                  </CCol>
+                </CTabPane>
+
                 <div style={{ marginTop: 30 }}>
                   <CCol xs="auto">
                     <CButton onClick={() => saveSettings()} color="secondary" className="mb-3">

@@ -60,18 +60,43 @@ export default function CreateOrEdit() {
   }
   const updateCategoryById = async () => {
     try {
+
+      console.log('sub ' + category?.sub)
+
       let formData = new FormData()
+
+      // if (typeof category !== 'undefined') {
+      //   Object.entries(category).map(([key, value]) => {
+      //     formData.append(key, value)
+      //   })
+      // }
       if (typeof category !== 'undefined') {
-        Object.entries(category).map(([key, value]) => {
-          formData.append(key, value)
-        })
+        //
+        formData.append('name[en]', category.name?.en || '')
+        formData.append('name[ar]', category.name?.ar || '')
+        formData.append('name[fr]', category.name?.fr || '')
+        formData.append('name[tr]', category.name?.tr || '')
+        //
+        formData.append('desc[en]', category.desc?.en || '')
+        formData.append('desc[ar]', category.desc?.ar || '')
+        formData.append('desc[fr]', category.desc?.fr || '')
+        formData.append('desc[tr]', category.desc?.tr || '')
+
+        formData.append('sort', category?.sort || 999)
+        formData.append('sub', category?.sub || null)
       }
+
+      for (const value of formData.values()) {
+        console.log(JSON.stringify(value))
+      }
+
       if(category.logo){
         formData.append('logo', category.logo[0])
       }
-      if(category.background)
+      if(category.background){
+        formData.append('background', category.background[0])
+      }
 
-      formData.append('background', category.background[0])
       console.log(`categories ${category}`)
       formData.delete('_id')
       formData.delete('__v')
@@ -79,7 +104,7 @@ export default function CreateOrEdit() {
       formData.delete('updatedAt')
       let data = await axios.patch(`${api.updateCategoryById}${categoryId}`, formData)
       // console.log(`form-data after axios ${formData}`)
-      console.log(`data ${data}`)
+      console.log(`data ${JSON.stringify(data)}`)
       setAlertText('Updated successfully!')
       setAlertShow(true)
       setAlertType('success')
@@ -96,11 +121,26 @@ export default function CreateOrEdit() {
       console.log(api.addCategory)
       let formData = new FormData()
       console.log(typeof category !== 'undefined')
+      // if (typeof category !== 'undefined') {
+      //   Object.entries(category).map(([key, value]) => {
+      //     console.log()
+      //     formData.append(key, value)
+      //   })
+      // }
       if (typeof category !== 'undefined') {
-        Object.entries(category).map(([key, value]) => {
-          formData.append(key, value)
+        //
+        formData.append('name[en]', category.name?.en || '')
+        formData.append('name[ar]', category.name?.ar || '')
+        formData.append('name[fr]', category.name?.fr || '')
+        formData.append('name[tr]', category.name?.tr || '')
+        //
+        formData.append('desc[en]', category.desc?.en || '')
+        formData.append('desc[ar]', category.desc?.ar || '')
+        formData.append('desc[fr]', category.desc?.fr || '')
+        formData.append('desc[tr]', category.desc?.tr || '')
 
-        })
+        formData.append('sort', category?.sort || 999)
+        formData.append('sub', category?.sub)
       }
       formData.append('logo', category.logo[0])
       formData.append('background', category.background[0])
@@ -138,7 +178,7 @@ export default function CreateOrEdit() {
         response.data?.data.map( async (service, index) => {
           if( index === 0 )
             list.push({label: "Main Service", value: null})
-          list.push({label: service.name, value: service._id})
+          list.push({label: service.name?.en || '', value: service._id})
         })
       );
       setCategories(list)
@@ -211,17 +251,50 @@ export default function CreateOrEdit() {
                     id='formFile'
                   />
                 </CCol>
-
-                <CCol lg={12} xs={12}>
-                  <CFormLabel htmlFor='name'>Name</CFormLabel>
+                <hr />
+                {/* Name */}
+                <CCol lg={6} xs={12}>
+                  <CFormLabel htmlFor='name'>Name [EN]</CFormLabel>
                   <CFormInput
                     name='name'
-                    value={category?.name || ''}
+                    value={category?.name?.en || ''}
                     type='text'
-                    onChange={(e) => handleChange('name', e.target.value)}
+                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'en': e.target.value} })}
                     placeholder='Type service name'
                   />
                 </CCol>
+                <CCol lg={6} xs={12}>
+                  <CFormLabel htmlFor='name'>Name [AR]</CFormLabel>
+                  <CFormInput
+                    name='name'
+                    value={category?.name?.ar || ''}
+                    type='text'
+                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'ar': e.target.value} })}
+                    placeholder='Type service name'
+                  />
+                </CCol>
+                <CCol lg={6} xs={12}>
+                  <CFormLabel htmlFor='name'>Name [FR]</CFormLabel>
+                  <CFormInput
+                    name='name'
+                    value={category?.name?.fr || ''}
+                    type='text'
+                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'fr': e.target.value} })}
+                    placeholder='Type service name'
+                  />
+                </CCol>
+                <CCol lg={6} xs={12}>
+                  <CFormLabel htmlFor='name'>Name [TR]</CFormLabel>
+                  <CFormInput
+                    name='name'
+                    value={category?.name?.tr || ''}
+                    type='text'
+                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'tr': e.target.value} })}
+                    placeholder='Type service name'
+                  />
+                </CCol>
+                {/* ######################## */}
+                <hr />
 
                 <CCol lg={6} xs={12}>
                   <CFormLabel htmlFor='sort'>Main Service</CFormLabel>
@@ -243,18 +316,60 @@ export default function CreateOrEdit() {
                     onChange={(e) => handleChange('sort', e.target.value)}
                   />
                 </CCol>
-                <CCol xs='12'>
-                  <CFormLabel htmlFor='desc'>Description</CFormLabel>
+
+                {/* Desc */}
+                <hr />
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='desc'>Description [EN]</CFormLabel>
                   <CFormTextarea
                     name='desc'
-                    value={category?.desc || ''}
-                    onChange={(e) => handleChange('desc', e.target.value)}
+                    value={category?.desc?.en || ''}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'en': e.target.value} })}
                     rows='3'
                     placeholder='Type service description...'
                   >
-                    {category?.desc}
+                    {category?.desc?.en || ''}
                   </CFormTextarea>
                 </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='desc'>Description [AR]</CFormLabel>
+                  <CFormTextarea
+                    name='desc'
+                    value={category?.desc?.ar || ''}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'ar': e.target.value} })}
+                    rows='3'
+                    placeholder='Type service description...'
+                  >
+                    {category?.desc?.ar || ''}
+                  </CFormTextarea>
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='desc'>Description [FR]</CFormLabel>
+                  <CFormTextarea
+                    name='desc'
+                    value={category?.desc?.fr || ''}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'fr': e.target.value} })}
+                    rows='3'
+                    placeholder='Type service description...'
+                  >
+                    {category?.desc?.fr || ''}
+                  </CFormTextarea>
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='desc'>Description [TR]</CFormLabel>
+                  <CFormTextarea
+                    name='desc'
+                    value={category?.desc?.tr || ''}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'tr': e.target.value} })}
+                    rows='3'
+                    placeholder='Type service description...'
+                  >
+                    {category?.desc?.tr || ''}
+                  </CFormTextarea>
+                </CCol>
+                {/* ######################## */}
+                <hr />
+
                 <div>
                   <CCol xs='auto'>
                     {addOrEdit === 'add' ? (

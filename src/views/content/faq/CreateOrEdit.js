@@ -75,7 +75,7 @@ export default function CreateOrEdit() {
      setAlertText('Record updated successfully!')
      setAlertShow(true)
      setAlertType('success')
-     navigate('/FAQsControl')
+     navigate('/admin/FAQsControl')
    }catch (e) {
      setAlertText(e.response?.data?.message)
      setAlertShow(true)
@@ -93,7 +93,7 @@ export default function CreateOrEdit() {
       setAlertText('Record created successfully!')
       setAlertShow(true)
       setAlertType('success')
-      navigate('/FAQsControl')
+      navigate('/admin/FAQsControl')
     } catch (e) {
       setAlertText(e.response?.data?.message)
       setAlertShow(true)
@@ -127,16 +127,50 @@ export default function CreateOrEdit() {
             </CCardHeader>
             <CCardBody>
               <CForm className='row g-3'>
+
+                {/*  */}
                 <CCol xs='6'>
-                  <CFormLabel htmlFor='answer'>Question</CFormLabel>
+                  <CFormLabel htmlFor='answer'>Question [en]</CFormLabel>
                   <CFormInput
                     name='question'
-                    value={faqs?.question || ''}
+                    value={faqs?.question?.en || ''}
                     type='text'
                     placeholder='Type FAQ Question'
-                    onChange={(e) => handleChange('question', e.target.value)}
+                    onChange={(e) => setFaqs({ ...faqs, 'question': {...faqs.question, 'en': e.target.value} })}
                   />
                 </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Question [ar]</CFormLabel>
+                  <CFormInput
+                    name='question'
+                    value={faqs?.question?.ar || ''}
+                    type='text'
+                    placeholder='Type FAQ Question'
+                    onChange={(e) => setFaqs({ ...faqs, 'question': {...faqs.question, 'ar': e.target.value} })}
+                  />
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Question [fr]</CFormLabel>
+                  <CFormInput
+                    name='question'
+                    value={faqs?.question?.fr || ''}
+                    type='text'
+                    placeholder='Type FAQ Question'
+                    onChange={(e) => setFaqs({ ...faqs, 'question': {...faqs.question, 'fr': e.target.value} })}
+                  />
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Question [tr]</CFormLabel>
+                  <CFormInput
+                    name='question'
+                    value={faqs?.question?.tr || ''}
+                    type='text'
+                    placeholder='Type FAQ Question'
+                    onChange={(e) => setFaqs({ ...faqs, 'question': {...faqs.question, 'tr': e.target.value} })}
+                  />
+                </CCol>
+                {/* ############################# */}
+
                 <CCol xs='6'>
                   <CFormLabel htmlFor='sort'>Sort</CFormLabel>
                   <CFormInput
@@ -147,18 +181,59 @@ export default function CreateOrEdit() {
                     onChange={(e) => handleChange('sort', e.target.value)}
                   />
                 </CCol>
-                <CCol xs='12'>
-                  <CFormLabel htmlFor='answer'>Answer</CFormLabel>
+
+                <hr/>
+
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Answer [en]</CFormLabel>
                   <CFormTextarea
                     name='answer'
-                    value={faqs?.answer || ''}
-                    onChange={(e) => handleChange('answer', e.target.value)}
+                    value={faqs?.answer?.en || ''}
+                    onChange={(e) => setFaqs({ ...faqs, 'answer': {...faqs.answer, 'en': e.target.value} })}
                     rows='3'
                     placeholder='Type FAQ Answer...'
                   >
-                    {faqs?.answer}
+                    {faqs?.answer?.en || ''}
                   </CFormTextarea>
                 </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Answer [ar]</CFormLabel>
+                  <CFormTextarea
+                    name='answer'
+                    value={faqs?.answer?.ar || ''}
+                    onChange={(e) => setFaqs({ ...faqs, 'answer': {...faqs.answer, 'ar': e.target.value} })}
+                    rows='3'
+                    placeholder='Type FAQ Answer...'
+                  >
+                    {faqs?.answer?.ar || ''}
+                  </CFormTextarea>
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Answer [fr]</CFormLabel>
+                  <CFormTextarea
+                    name='answer'
+                    value={faqs?.answer?.fr || ''}
+                    onChange={(e) => setFaqs({ ...faqs, 'answer': {...faqs.answer, 'fr': e.target.value} })}
+                    rows='3'
+                    placeholder='Type FAQ Answer...'
+                  >
+                    {faqs?.answer?.fr || ''}
+                  </CFormTextarea>
+                </CCol>
+                <CCol xs='6'>
+                  <CFormLabel htmlFor='answer'>Answer [tr]</CFormLabel>
+                  <CFormTextarea
+                    name='answer'
+                    value={faqs?.answer?.tr || ''}
+                    onChange={(e) => setFaqs({ ...faqs, 'answer': {...faqs.answer, 'tr': e.target.value} })}
+                    rows='3'
+                    placeholder='Type FAQ Answer...'
+                  >
+                    {faqs?.answer?.tr || ''}
+                  </CFormTextarea>
+                </CCol>
+
+                {/* ########################################### */}
                 <div>
                   <CCol xs='auto'>
                     {addOrEdit === 'add' ? (
