@@ -28,6 +28,9 @@ export default function CreateOrEdit() {
   const [addOrEdit, setProcess] = useState('add')
   const [category, setCategory] = useState({})
 
+  const [logoFile, setLogoFile] = useState(null);
+  const [backgroundFile, setBackgroundFile] = useState(null);
+
   const [alertShow, setAlertShow] = useState(false)
   const [alertText, setAlertText] = useState('')
   const [alertType, setAlertType] = useState('')
@@ -90,11 +93,11 @@ export default function CreateOrEdit() {
         console.log(JSON.stringify(value))
       }
 
-      if(category.logo){
-        formData.append('logo', category.logo[0])
+      if(logoFile != null){
+        formData.append('logo', logoFile[0])
       }
-      if(category.background){
-        formData.append('background', category.background[0])
+      if(backgroundFile != null){
+        formData.append('background', backgroundFile[0])
       }
 
       console.log(`categories ${category}`)
@@ -142,8 +145,17 @@ export default function CreateOrEdit() {
         formData.append('sort', category?.sort || 999)
         formData.append('sub', category?.sub)
       }
-      formData.append('logo', category.logo[0])
-      formData.append('background', category.background[0])
+
+      // formData.append('logo', category.logo[0])
+      // formData.append('background', category.background[0])
+
+      if(logoFile != null){
+        formData.append('logo', logoFile[0])
+      }
+      if(backgroundFile != null){
+        formData.append('background', backgroundFile[0])
+      }
+
       await axios.post(api.addCategory, formData).then(function(res) {
 
         if (res.data) {
@@ -238,7 +250,7 @@ export default function CreateOrEdit() {
                   <CFormInput
                     type='file'
                     name='background'
-                    onChange={(e) => handleChange('background', e.target.files)}
+                    onChange={(e) => setBackgroundFile(e.target.files)}
                     id='formFile'
                   />
                 </CCol>
@@ -247,7 +259,7 @@ export default function CreateOrEdit() {
                   <CFormInput
                     type='file'
                     name='logo'
-                    onChange={(e) => handleChange('logo', e.target.files)}
+                    onChange={(e) => setLogoFile(e.target.files)}
                     id='formFile'
                   />
                 </CCol>
@@ -300,7 +312,7 @@ export default function CreateOrEdit() {
                   <CFormLabel htmlFor='sort'>Main Service</CFormLabel>
                   <CFormSelect
                     aria-label="Main Service"
-                    value={category?.sub ?? null}
+                    value={category?.sub ?? '0'}
                     onChange={(e) => handleChange('sub', e.target.value)}
                     options={categories}
                   />
