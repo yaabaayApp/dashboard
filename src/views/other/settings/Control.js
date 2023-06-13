@@ -274,7 +274,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.about?.en ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'en': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings?.about, 'en': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -283,7 +283,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.about?.ar ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'ar': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings?.about, 'ar': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -292,7 +292,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.about?.fr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'fr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings?.about, 'fr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -301,7 +301,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.about?.tr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'about': {...settings.about, 'tr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'about': {...settings?.about, 'tr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -313,7 +313,7 @@ export default function Control() {
                     <CFormTextarea
                       name='answer'
                       value={settings?.privacy?.en ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'en': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings?.privacy, 'en': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -322,7 +322,7 @@ export default function Control() {
                     <CFormTextarea
                       name='answer'
                       value={settings?.privacy?.ar ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'ar': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings?.privacy, 'ar': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -331,7 +331,7 @@ export default function Control() {
                     <CFormTextarea
                       name='answer'
                       value={settings?.privacy?.fr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'fr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings?.privacy, 'fr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -340,7 +340,7 @@ export default function Control() {
                     <CFormTextarea
                       name='answer'
                       value={settings?.privacy?.tr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings.privacy, 'tr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'privacy': {...settings?.privacy, 'tr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -352,7 +352,7 @@ export default function Control() {
                     <CFormTextarea
                       name='answer'
                       value={settings?.terms?.en ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'en': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings?.terms, 'en': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -361,7 +361,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.terms?.ar ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'ar': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings?.terms, 'ar': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -370,7 +370,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.terms?.fr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'fr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings?.terms, 'fr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
@@ -379,7 +379,7 @@ export default function Control() {
                     <CFormTextarea
                       name=''
                       value={settings?.terms?.tr ?? ''}
-                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings.terms, 'tr': e.target.value} })}
+                      onChange={(e) => setSettings({ ...settings, 'terms': {...settings?.terms, 'tr': e.target.value} })}
                       rows='3'
                       placeholder=''/>
                   </CCol>
