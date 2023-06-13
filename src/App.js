@@ -5,6 +5,7 @@ import userStore from './store/user'
 import user from './store/user'
 import PrivacyPolicyPage from './views/frontend/PrivacyPolicyPage'
 import HomePage from './views/frontend/HomePage'
+import MedicalDisclaimerPage from "./views/frontend/MedicalDisclaimerPage";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -31,6 +32,11 @@ class App extends Component {
               path="/privacy"
               name="Yaabaay - Privacy Policy"
               element={<PrivacyPolicyPage />}
+            />
+            <Route
+              path="/medical-disclaimer"
+              name="Yaabaay - Medical Disclaimer"
+              element={<MedicalDisclaimerPage />}
             />
 
             {/*<Route exact path="/register" name="Register Page" element={<Register />} />*/}

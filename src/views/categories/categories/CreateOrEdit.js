@@ -75,15 +75,15 @@ export default function CreateOrEdit() {
       // }
       if (typeof category !== 'undefined') {
         //
-        formData.append('name[en]', category.name?.en || '')
-        formData.append('name[ar]', category.name?.ar || '')
-        formData.append('name[fr]', category.name?.fr || '')
-        formData.append('name[tr]', category.name?.tr || '')
+        formData.append('name[en]', category?.name?.en || '')
+        formData.append('name[ar]', category?.name?.ar || '')
+        formData.append('name[fr]', category?.name?.fr || '')
+        formData.append('name[tr]', category?.name?.tr || '')
         //
-        formData.append('desc[en]', category.desc?.en || '')
-        formData.append('desc[ar]', category.desc?.ar || '')
-        formData.append('desc[fr]', category.desc?.fr || '')
-        formData.append('desc[tr]', category.desc?.tr || '')
+        formData.append('desc[en]', category?.desc?.en || '')
+        formData.append('desc[ar]', category?.desc?.ar || '')
+        formData.append('desc[fr]', category?.desc?.fr || '')
+        formData.append('desc[tr]', category?.desc?.tr || '')
 
         formData.append('sort', category?.sort || 999)
         formData.append('sub', category?.sub || null)
@@ -271,7 +271,7 @@ export default function CreateOrEdit() {
                     name='name'
                     value={category?.name?.en || ''}
                     type='text'
-                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'en': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'name': {...category?.name, 'en': e.target.value} })}
                     placeholder='Type service name'
                   />
                 </CCol>
@@ -281,7 +281,7 @@ export default function CreateOrEdit() {
                     name='name'
                     value={category?.name?.ar || ''}
                     type='text'
-                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'ar': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'name': {...category?.name, 'ar': e.target.value} })}
                     placeholder='Type service name'
                   />
                 </CCol>
@@ -291,7 +291,7 @@ export default function CreateOrEdit() {
                     name='name'
                     value={category?.name?.fr || ''}
                     type='text'
-                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'fr': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'name': {...category?.name, 'fr': e.target.value} })}
                     placeholder='Type service name'
                   />
                 </CCol>
@@ -301,7 +301,7 @@ export default function CreateOrEdit() {
                     name='name'
                     value={category?.name?.tr || ''}
                     type='text'
-                    onChange={(e) => setCategory({ ...category, 'name': {...category.name, 'tr': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'name': {...category?.name, 'tr': e.target.value} })}
                     placeholder='Type service name'
                   />
                 </CCol>
@@ -336,7 +336,7 @@ export default function CreateOrEdit() {
                   <CFormTextarea
                     name='desc'
                     value={category?.desc?.en || ''}
-                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'en': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category?.desc, 'en': e.target.value} })}
                     rows='3'
                     placeholder='Type service description...'
                   >
@@ -348,7 +348,7 @@ export default function CreateOrEdit() {
                   <CFormTextarea
                     name='desc'
                     value={category?.desc?.ar || ''}
-                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'ar': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category?.desc, 'ar': e.target.value} })}
                     rows='3'
                     placeholder='Type service description...'
                   >
@@ -360,7 +360,7 @@ export default function CreateOrEdit() {
                   <CFormTextarea
                     name='desc'
                     value={category?.desc?.fr || ''}
-                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'fr': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category?.desc, 'fr': e.target.value} })}
                     rows='3'
                     placeholder='Type service description...'
                   >
@@ -372,7 +372,7 @@ export default function CreateOrEdit() {
                   <CFormTextarea
                     name='desc'
                     value={category?.desc?.tr || ''}
-                    onChange={(e) => setCategory({ ...category, 'desc': {...category.desc, 'tr': e.target.value} })}
+                    onChange={(e) => setCategory({ ...category, 'desc': {...category?.desc, 'tr': e.target.value} })}
                     rows='3'
                     placeholder='Type service description...'
                   >
