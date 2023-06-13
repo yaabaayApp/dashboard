@@ -46,11 +46,8 @@ export default function Control() {
       // console.log(response.data?.data.emailOrPhone) // CORRECT FORMAT
       // console.log(response.data?.data) // all data
       let settingsData = response.data?.data
-      console.log(`settingsData : ` + JSON.stringify(settingsData))
       setSettings(settingsData)
       setToggleSwitch(response.data?.data.registration)
-      console.log(`About : ${settingsData.about}`)
-      console.log(`switch value ${toggleSwitch}`)
     } catch (e) {
       console.log(`getSettingsData error`)
       console.log(e)
@@ -60,8 +57,6 @@ export default function Control() {
   const saveSettings = async () => {
     try {
       const setting = await axios.post(`${api.saveSettings}`, settings)
-      console.log(`save Setting func ${setting}`)
-      console.log(`save Setting func ${settings}`)
       setAlertText('Settings successfully set!')
       setAlertShow(true)
       setAlertType('success')
@@ -81,7 +76,6 @@ export default function Control() {
   }
 
   useEffect(() => {
-
     getSettingsData().then((r) => {})
   }, [])
 

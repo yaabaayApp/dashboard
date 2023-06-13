@@ -81,7 +81,6 @@ export default function CreateOrEdit() {
 
   const updateCategoryOrderById = async () => {
     let data = await axios.patch(`${api.updateCategoryOrderById}${categoryOrderId}`, categoryOrder)
-    console.log(data)
     setAlertText('Record updated successfully!')
     setAlertShow(true)
     setAlertType('success')
@@ -92,8 +91,6 @@ export default function CreateOrEdit() {
     try {
       console.log(api.categoriesOrderAdminCreateUser)
       const response = await axios.post(`${api.categoriesOrderAdminCreateUser}`, categoryOrder)
-      console.log(response.data)
-      console.log(response.data?.data)
       setAlertText('Record created successfully!')
       setAlertShow(true)
       setAlertType('success')

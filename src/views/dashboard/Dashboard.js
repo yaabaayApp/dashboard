@@ -40,7 +40,6 @@ const Dashboard = () => {
     try {
       console.log(api.getLatestTenOrders)
       const response = await axios.get(api.getLatestTenOrders)
-      console.log(response.data?.data)
       setCategoriesOrders(response.data?.data ?? [])
     } catch (e) {
       // setCategoriesOrders(null)
@@ -53,7 +52,6 @@ const Dashboard = () => {
     try {
       console.log(api.getUnreadMessagesCount)
       const response = await axios.get(api.getUnreadMessagesCount)
-      console.log(response.data)
       setContactUs(response.data ?? [])
     } catch (e) {
       setContactUs(null)
@@ -63,9 +61,7 @@ const Dashboard = () => {
 
   const getLeadsCount = async () => {
     try {
-      console.log(api.getLeads)
       const response = await axios.get(api.getLeads)
-      console.log(response.data)
       setLeads(response.data ?? [])
     } catch (e) {
       setLeads(null)
@@ -77,7 +73,6 @@ const Dashboard = () => {
     try {
       console.log(api.getCategoriesCount)
       const response = await axios.get(api.getCategoriesCount)
-      console.log(response.data)
       setServices(response.data ?? [])
     } catch (e) {
       setServices(null)
@@ -89,7 +84,6 @@ const Dashboard = () => {
     try {
       console.log(api.getAgents)
       const response = await axios.get(api.getAgents)
-      console.log(response.data)
       setAgents(response.data ?? [])
     } catch (e) {
       setAgents(null)
