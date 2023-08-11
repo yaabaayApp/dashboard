@@ -124,7 +124,7 @@ export default function CreateOrEdit() {
               ) : addOrEdit === 'edit' ? (
                 <strong>{`Updating Service Order ID ${categoryOrder?.orderId}`}</strong>
               ) : (
-                <strong>??? ??? ???</strong>
+                <strong>Service</strong>
               )}
             </CCardHeader>
             <CCardBody>
@@ -191,7 +191,7 @@ export default function CreateOrEdit() {
                       </CButton>
                     ) : (
                       <CButton disabled color="danger" className="mb-3">
-                        ??????
+                        Disabled
                       </CButton>
                     )}
                   </CCol>

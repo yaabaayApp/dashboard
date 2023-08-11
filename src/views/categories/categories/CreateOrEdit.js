@@ -40,23 +40,25 @@ export default function CreateOrEdit() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getCategoriesData().then(r => {})
-    getCategoryData().then((r) => {})
     if (typeof categoryId !== 'undefined') {
       setProcess('edit')
     }
+    getCategoriesData().then(r => {})
+    getCategoryData().then((r) => {})
   }, [])
   //
   const getCategoryData = async () => {
     try {
       console.log(`getCategoryData`)
+      console.log(categoryId)
       let res = await axios.get(`${api.getCategoryById}${categoryId}`).then(({ data }) => data)
       // console.log(`${api.getCategoryById}${categoryId}`)
       // console.log(res)
       let categoriesData = res.data
+
       setCategory(categoriesData)
       // console.log(`editor state category ${editorState}`)
-      // console.log(categories)
+      console.log(category)
     } catch (e) {
       console.log(e)
     }
@@ -221,7 +223,7 @@ export default function CreateOrEdit() {
               ) : addOrEdit === 'edit' ? (
                 <strong>{`Editing Service : ${category?.name}`}</strong>
               ) : (
-                <strong>??? ??? ???</strong>
+                <strong></strong>
               )}
             </CCardHeader>
             <CCardBody>
@@ -230,15 +232,15 @@ export default function CreateOrEdit() {
                 {addOrEdit === 'edit' ? (
                   <>
                     <CCol xs='6'>
-                      <strong style={{ position: 'absolute' }}>Logo</strong>
-                      <img src={`${process.env.REACT_APP_AMAZON_AWS_URL}${category?.logo}`}
-                           style={{ height: '200px' , marginTop: '35px' }}
-                           alt='' />
-                    </CCol>
-                    <CCol xs='6'>
                       <strong style={{ position: 'absolute' }}>Background</strong>
                       <img src={`${process.env.REACT_APP_AMAZON_AWS_URL}${category?.background}`}
                            style={{ height: '200px', marginTop: '35px' }}
+                           alt='' />
+                    </CCol>
+                    <CCol xs='6'>
+                      <strong style={{ position: 'absolute' }}>Logo</strong>
+                      <img src={`${process.env.REACT_APP_AMAZON_AWS_URL}${category?.logo}`}
+                           style={{ height: '200px' , marginTop: '35px' }}
                            alt='' />
                     </CCol>
                   </>
