@@ -7,7 +7,6 @@ import PrivacyPolicyPage from './views/frontend/PrivacyPolicyPage'
 import HomePage from './views/frontend/HomePage'
 import MedicalDisclaimerPage from "./views/frontend/MedicalDisclaimerPage";
 import QrPage from './views/frontend/QrPage'
-import AssetLinksJson from './views/frontend/AssetLinksJson'
 
 const loading = (
   <div className="pt-3 text-center">
