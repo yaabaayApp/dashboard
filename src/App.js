@@ -7,6 +7,7 @@ import PrivacyPolicyPage from './views/frontend/PrivacyPolicyPage'
 import HomePage from './views/frontend/HomePage'
 import MedicalDisclaimerPage from "./views/frontend/MedicalDisclaimerPage";
 import QrPage from './views/frontend/QrPage'
+import AssetLinksJson from './views/frontend/AssetLinksJson'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -30,6 +31,7 @@ class App extends Component {
           <Routes>
             <Route exact path="/" name="Home" element={<HomePage />} />
             <Route exact path="/installApp" name="Yaabaay - Install App" element={<QrPage />} />
+
             <Route
               path="/privacy"
               name="Yaabaay - Privacy Policy"
