@@ -30,6 +30,7 @@ class App extends Component {
           <Routes>
             <Route exact path="/" name="Home" element={<HomePage />} />
             <Route exact path="/installApp" name="Yaabaay - Install App" element={<QrPage />} />
+
             <Route
               path="/privacy"
               name="Yaabaay - Privacy Policy"

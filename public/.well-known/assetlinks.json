@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yaabaay.app",
+      "sha256_cert_fingerprints": ["EE:EB:E0:76:07:8A:C5:6D:FD:2B:1B:BA:90:A7:5D:DC:10:3F:15:D7:7E:EB:F7:9D:59:F6:0B:EE:68:D1:14:AA"]
+    }
+  }
+]
