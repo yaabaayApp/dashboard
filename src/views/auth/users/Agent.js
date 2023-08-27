@@ -32,8 +32,8 @@ import { cilBadge } from '@coreui/icons'
 import noAvatar from '../../../assets/images/avatars/profile.png'
 
 //
-export default function Control() {
-  const { roleId, id } = useParams()
+export default function AgentControl() {
+  const { id } = useParams()
   // const location = useLocation()
 
   const navigate = useNavigate()
@@ -51,32 +51,6 @@ export default function Control() {
     console.log(user)
     return Object.values(user).toString().toLowerCase().includes(query.toLowerCase())
   })
-  // const getUsers = async () => {
-  //   try {
-  //     // console.log(api.getAllUsers)
-  //     const response = await axios.get(api.getAllUsers)
-  //     // console.log(response.data?.data);
-  //     setUsers(response.data?.data ?? [])
-  //   } catch (e) {
-  //     setUsers(null)
-  //     console.log(e)
-  //   }
-  // }
-
-  const getUsersByRole = async () => {
-    try {
-      // console.log(`${api.getUsersByRole}${roleId} `)
-      // console.log(roleId)
-      const response = await axios.get(`${api.getUsersByRole}${roleId}`)
-      // console.log(`${api.getCategoryById}${categoryId}`)
-      // console.log(res)
-      // console.log(`this is res data ${response.data}`)
-      setUsers(response.data?.data ?? [])
-    } catch (e) {
-      setUsers([])
-      console.log(e)
-    }
-  }
 
   const userDelete = async (id) => {
     if (!window.confirm('Confirm delete user ?')) return false
@@ -107,11 +81,10 @@ export default function Control() {
 
   const userAgentsControl = async (id) => {
     try {
-      console.log(`admin/userAgents/${id}`)
-      navigate(`/admin/userAgents/${id}`)
-      // const response = await axios.get(`${api.getUserAgents}${id}`)
-      // console.log(`this is agents res data ${JSON.stringify(response.data?.data)}`)
-      // setUsers(response.data?.data ?? [])
+      //console.log(`userAgentsControl ${id}`)
+      const response = await axios.get(`${api.getUserAgents}${id}`)
+      ///console.log(`this is agents res data ${JSON.stringify(response.data?.data)}`)
+      setUsers(response.data?.data ?? [])
     } catch (e) {
       setUsers([])
       console.log(e)
@@ -119,18 +92,8 @@ export default function Control() {
   }
 
   useEffect(() => {
-    if (typeof id == 'undefined') {
-      getUsersByRole().then((r) => {
-      })
-    }
-    console.log(id)
-    console.log(roleId)
-    if (typeof roleId !== 'undefined') {
-      getUsersByRole().then((r) => {
-      })
-      console.log(roleId)
-    }
-  }, [roleId])
+      userAgentsControl(id).then((r) => {});
+  }, [id])
 
   return (
     <>
@@ -147,19 +110,11 @@ export default function Control() {
 
           <CCard className='mb-4'>
             <CCardHeader>
-              {roleId === 'customer' ? (
-                <strong>Users Control</strong>
-              ) : roleId === 'agent' ? (
-                <strong>Agents Control</strong>
-              ) : roleId === 'admin' ? (
-                <strong>Admins Control</strong>
-              ) : (
-                ''
-              )}
+              Agent customers
               <CFormInput
                 style={{ float: 'right', display: 'block', width: '40%' }}
                 type='search'
-                placeholder='Search Users Control...'
+                placeholder='Search Users...'
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -177,7 +132,6 @@ export default function Control() {
                       <CTableHeaderCell scope='col'>Role</CTableHeaderCell>
                       <CTableHeaderCell scope='col'>Status</CTableHeaderCell>
                       <CTableHeaderCell scope='col'>Date</CTableHeaderCell>
-                      {roleId === 'agent' ? <CTableDataCell>Agents</CTableDataCell> : ''}
                       <CTableHeaderCell scope='col'>Control</CTableHeaderCell>
                     </CTableRow>
                   </CTableHead>
@@ -223,29 +177,15 @@ export default function Control() {
                           </CTableDataCell>
                           <CTableDataCell>{user.createdAt}</CTableDataCell>
 
-                          {roleId === 'agent' ? (
-                            <CTableDataCell>
-                                <span onClick={() => userAgentsControl(user._id)} color='info'>
-                                  <FontAwesomeIcon icon={faBriefcase} />
-                                </span>
-                            </CTableDataCell>
-                          ) : (
-                            ''
-                          )}
+
                           <CTableDataCell>
-                            {roleId !== 'admin' ? (
-                              <>
-                                  <span onClick={() => userEdit(user._id)} color='info'>
-                                    <FontAwesomeIcon icon={faPen} />
-                                  </span>
-                              </>
-                            ) : (
-                              ''
-                            )}
+                            <span onClick={() => userEdit(user._id)} color='info'>
+                              <FontAwesomeIcon icon={faPen} />
+                            </span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <span onClick={() => userDelete(user._id)} color='danger'>
                                 <FontAwesomeIcon icon={faTrashAlt} />
-                              </span>
+                            </span>
                           </CTableDataCell>
                         </CTableRow>
                       )

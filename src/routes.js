@@ -7,6 +7,7 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 //Auth
 const UserCreateOrEdit = React.lazy(() => import('./views/auth/users/CreateOrEdit'))
 const UserControl = React.lazy(() => import('./views/auth/users/Control'))
+const AgentControl = React.lazy(() => import('./views/auth/users/Agent'))
 const Profile = React.lazy(() => import('./views/auth/login/Profile'))
 
 //CONTACT-US [ contact us ]
@@ -45,7 +46,7 @@ const routes = [
 
   { path: '/admin/userCreate', name: 'Add New User', element: UserCreateOrEdit },
   { path: '/admin/userEdit/:userId', name: 'Edit User', element: UserCreateOrEdit },
-  { path: '/admin/userAgents/:id', name: 'Users Control', element: UserControl },
+  { path: '/admin/userAgents/:id', name: 'Agent Customers', element: AgentControl },
   { path: '/admin/userControl/:roleId', name: 'Users Control', element: UserControl },
   // { path: '/userControl', name: 'Users Control', element: UserControl },
   { path: '/admin/profile/:userId', name: 'Admin Profile', element: Profile },
