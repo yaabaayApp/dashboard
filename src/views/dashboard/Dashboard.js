@@ -254,7 +254,7 @@ const Dashboard = () => {
                             categoryOrder.userMobile || 'No Mobile'
                           }`}</CTableDataCell>
                           {/*<CTableDataCell>{categoryOrder.notes || '-'}</CTableDataCell>*/}
-                          <CTableDataCell>{`${categoryOrder?.registerByUserName || '-'} - ${categoryOrder?.registerByUserMobile || '-'}`}</CTableDataCell>
+                          <CTableDataCell>{`${categoryOrder?.registerBy || '-'}`}</CTableDataCell>
                           <CTableDataCell>{categoryOrder.createdAt}</CTableDataCell>
                         </CTableRow>
                       )
