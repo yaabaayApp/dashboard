@@ -1,10 +1,14 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.yaabaay.app",
-      "sha256_cert_fingerprints": ["EE:EB:E0:76:07:8A:C5:6D:FD:2B:1B:BA:90:A7:5D:DC:10:3F:15:D7:7E:EB:F7:9D:59:F6:0B:EE:68:D1:14:AA"]
+      "sha256_cert_fingerprints": [
+        "BD:57:70:9A:8C:7B:F0:AB:1F:0D:94:11:8A:46:18:8F:53:BA:A8:20:5E:DE:DC:3A:49:A4:2A:4E:61:8C:C0:12"
+      ]
     }
   }
 ]
