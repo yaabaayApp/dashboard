@@ -71,7 +71,7 @@ export default function CreateOrEdit() {
   }
   const getCategoriesData = async () => {
     try {
-      const response = await axios.get(api.getAllCategories)
+      const response = await axios.get(api.getMainWithSubsCategories)
       setCategories(response.data?.data ?? [])
     } catch (e) {
       setCategories(null)
