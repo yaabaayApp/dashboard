@@ -57,6 +57,7 @@ module.exports = {
   editFAQ: `/editFAQ/`,
   //CATEGORIES
   getAllCategories: `${categoryApi}`,
+  getMainWithSubsCategories: `${categoryApi}/getMainWithSubsCategories`,
   getSubCategories: `${categoryApi}/getSubCategories/`,
   getCategoryById: `${categoryApi}/`,
   categoryDelete: `${categoryApi}/delete/`,
