@@ -46,7 +46,7 @@ export default function HomePage() {
                 </a>
               </CCol>
               <CCol>
-                <a href='#'>
+                <a href='https://apps.apple.com/us/app/yaabaay/id6450189135'>
                   <img src={apple} className="img-fluid" alt="Yaabaay App - App Store" rel="noreferrer" />
                 </a>
               </CCol>
