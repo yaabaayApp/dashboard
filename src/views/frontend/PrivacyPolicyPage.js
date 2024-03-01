@@ -16,12 +16,11 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
-import Parser from 'html-react-parser';
+import Parser from 'html-react-parser'
 import api from '../../api/api'
 
 //
 export default function PrivacyPolicyPage() {
-
   const [content, setContent] = useState('') // intros Object
 
   const getSettingsData = async () => {
@@ -38,7 +37,7 @@ export default function PrivacyPolicyPage() {
   }
 
   useEffect(() => {
-    getSettingsData().then(r => {})
+    getSettingsData().then((r) => {})
   }, [])
 
   return (
@@ -48,14 +47,15 @@ export default function PrivacyPolicyPage() {
           <CCol lg={1} xs={12} />
           <CCol lg={10} xs={12}>
             <p>&nbsp;</p>
-            <h3><center>Yaabaay Privacy Policy</center></h3>
+            <h3>
+              <center>Yaabaay Privacy Policy</center>
+            </h3>
             <p>&nbsp;</p>
-            {Parser(content)}
+            {content && Parser(content?.en)}
           </CCol>
           <CCol lg={1} xs={12} />
         </CRow>
       </div>
     </div>
   )
-
 }
