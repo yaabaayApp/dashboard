@@ -1,10 +1,11 @@
 const baseUrl = process.env.REACT_APP_BASE_URL
-const userApi = `${baseUrl}/user`
-const authApi = `${baseUrl}/auth`
-const contactUsApi = `${baseUrl}/contactUs`
-const contentApi = `${baseUrl}/content`
-const categoryApi = `${baseUrl}/categories`
-const categoryOrderApi = `${baseUrl}/categoriesOrder`
+const userApi = `${baseUrl}user`
+const authApi = `${baseUrl}auth`
+const contactUsApi = `${baseUrl}contactUs`
+const contentApi = `${baseUrl}content`
+const categoryApi = `${baseUrl}categories`
+const categoryOrderApi = `${baseUrl}categoriesOrder`
+const notification = `${baseUrl}notifications`
 //CONTROL PANEL
 // const controlPanel = `/${cpBaseUrl}`
 
@@ -12,9 +13,9 @@ module.exports = {
   //user
   getAllUsers: `${userApi}`,
   getUsersByRole: `${userApi}/getUsersByRole/`,
-  getUserById: `${userApi}/`,  //  {{url}}user/:userId
+  getUserById: `${userApi}/`, //  {{url}}user/:userId
   getAdminById: `${userApi}/getAdmin/`,
-  getUserAgents: `${userApi}/getUserAgents/`,  //  {{url}}user/:userId
+  getUserAgents: `${userApi}/getUserAgents/`, //  {{url}}user/:userId
   userAgents: `/userAgents/`,
   userEdit: `/userEdit/`,
   forgetPassword: `${userApi}/requestRetrieveUserPassword`,
@@ -89,8 +90,5 @@ module.exports = {
   getCategoryMedia: `${categoryApi}/getCategoryMedia/`,
   deleteSingleCategoryMedia: `${categoryApi}/deleteSingleCategoryMedia/`,
   uploadServiceMedia: `${categoryApi}/uploadServiceMedia/`,
-
-
-
-
+  notification: `${notification}`,
 }

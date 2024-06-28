@@ -27,11 +27,14 @@ const settingsControl = React.lazy(() => import('./views/other/settings/Control'
 
 const categoryCreateOrEdit = React.lazy(() => import('./views/categories/categories/CreateOrEdit'))
 const categoryControl = React.lazy(() => import('./views/categories/categories/Control'))
+const notification = React.lazy(() => import('./views/notification/Notification'))
 
 const categoryMedia = React.lazy(() => import('./views/categories/categories/media/Media'))
 const createMedia = React.lazy(() => import('./views/categories/categories/media/CreateMedia'))
 
-const categoryOrderCreateOrEdit = React.lazy(() => import('./views/categories/categoriesOrders/CreateOrEdit'))
+const categoryOrderCreateOrEdit = React.lazy(() =>
+  import('./views/categories/categoriesOrders/CreateOrEdit'),
+)
 const categoryOrderControl = React.lazy(() => import('./views/categories/categoriesOrders/Control'))
 
 const PrivacyPolicyPage = React.lazy(() => import('./views/frontend/PrivacyPolicyPage'))
@@ -52,7 +55,11 @@ const routes = [
   { path: '/admin/profile/:userId', name: 'Admin Profile', element: Profile },
 
   { path: '/admin/contactUsCreate', name: 'Write a Contact Form', element: contactUsCreateOrEdit },
-  { path: '/admin/contactUsEdit/:contactUsId', name: 'Edit Contact Form', element: contactUsCreateOrEdit },
+  {
+    path: '/admin/contactUsEdit/:contactUsId',
+    name: 'Edit Contact Form',
+    element: contactUsCreateOrEdit,
+  },
   { path: '/admin/contactUsControl', name: 'Inbox', element: contactUsControl },
 
   { path: '/admin/introCreate', name: 'Add Intro', element: introCreateOrEdit },
@@ -64,22 +71,43 @@ const routes = [
   // { path: '/admin/slidersControl', name: 'Slider Control', element: slidersControl },
 
   { path: '/admin/createFAQ', name: 'Add Frequently Asked Question', element: FAQsCreateOrEdit },
-  { path: '/admin/editFAQ/:FAQId', name: 'Edit Frequently Asked Question', element: FAQsCreateOrEdit },
+  {
+    path: '/admin/editFAQ/:FAQId',
+    name: 'Edit Frequently Asked Question',
+    element: FAQsCreateOrEdit,
+  },
   { path: '/admin/FAQsControl', name: 'Frequently Asked Questions Control', element: FAQsControl },
 
   { path: '/admin/settingsControl', name: 'Settings Control', element: settingsControl },
 
   //Categories
   { path: '/admin/addCategory', name: 'Create Service', element: categoryCreateOrEdit },
+  { path: '/admin/addNotification', name: 'Add notification', element: notification },
   { path: '/admin/categoryEdit/:categoryId', name: 'Edit Service', element: categoryCreateOrEdit },
-  { path: '/admin/categoryControl/:mainCategory?', name: 'Services Control', element: categoryControl },
+  {
+    path: '/admin/categoryControl/:mainCategory?',
+    name: 'Services Control',
+    element: categoryControl,
+  },
 
-  { path: '/admin/categoryMedia/:categoryId', name: 'Service Media Control', element: categoryMedia },
-  { path: '/admin/createMedia/:categoryId', name: 'Add Files To Service Media', element: createMedia },
+  {
+    path: '/admin/categoryMedia/:categoryId',
+    name: 'Service Media Control',
+    element: categoryMedia,
+  },
+  {
+    path: '/admin/createMedia/:categoryId',
+    name: 'Add Files To Service Media',
+    element: createMedia,
+  },
 
   { path: '/admin/categoryOrderControl', name: 'Leads Control', element: categoryOrderControl },
   { path: '/admin/categoryOrderCreate', name: 'Create Order', element: categoryOrderCreateOrEdit },
-  { path: '/admin/categoryOrderEdit/:categoryOrderId', name: 'Edit Section', element: categoryOrderCreateOrEdit },
+  {
+    path: '/admin/categoryOrderEdit/:categoryOrderId',
+    name: 'Edit Section',
+    element: categoryOrderCreateOrEdit,
+  },
 ]
 
 export default routes

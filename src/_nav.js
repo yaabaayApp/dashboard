@@ -6,16 +6,19 @@ import {
   faEnvelopeOpen,
   faDesktop,
   faComments,
-  faTachometerAlt, faUserInjured, faUserMd,
+  faTachometerAlt,
+  faUserInjured,
+  faUserMd,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
+import Notification from './views/notification/Notification'
 
 const _nav = [
   {
     component: CNavItem,
     name: 'Dashboard',
     to: '/admin/dashboard',
-    icon: <FontAwesomeIcon icon={faTachometerAlt} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faTachometerAlt} style={{ marginRight: 12 }} />,
   },
   {
     component: CNavTitle,
@@ -24,7 +27,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Leads',
-    icon: <FontAwesomeIcon icon={faUserInjured} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faUserInjured} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,
@@ -41,7 +44,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Users',
-    icon: <FontAwesomeIcon icon={faUsers} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faUsers} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,
@@ -69,7 +72,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Services',
-    icon: <FontAwesomeIcon icon={faUserMd} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faUserMd} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,
@@ -81,12 +84,17 @@ const _nav = [
         name: 'Services Control',
         to: '/admin/categoryControl',
       },
+      {
+        component: CNavItem,
+        name: 'Add notification',
+        to: '/admin/addNotification',
+      },
     ],
   },
   {
     component: CNavGroup,
     name: 'Contacts',
-    icon: <FontAwesomeIcon icon={faEnvelopeOpen} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faEnvelopeOpen} style={{ marginRight: 12 }} />,
     items: [
       // {
       //   component: CNavItem,
@@ -103,7 +111,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Screens',
-    icon: <FontAwesomeIcon icon={faDesktop} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faDesktop} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,
@@ -130,7 +138,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'FAQs',
-    icon: <FontAwesomeIcon icon={faComments} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faComments} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,
@@ -147,7 +155,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Settings',
-    icon: <FontAwesomeIcon icon={faCog} style={{marginRight: 12}} />,
+    icon: <FontAwesomeIcon icon={faCog} style={{ marginRight: 12 }} />,
     items: [
       {
         component: CNavItem,

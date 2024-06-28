@@ -15,7 +15,7 @@ import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
 import navigation from '../_nav'
 
-const logo = require('../assets/logo-main-white.png');
+const logo = require('../assets/logo-main-white.png')
 
 const AppSidebar = () => {
   const dispatch = useDispatch()

@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from 'react'
 
 import {
-  CAlert, CButton, CCard, CCardBody, CCardHeader,
-  CCol, CForm, CFormInput,
-  CRow, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow,
+  CAlert,
+  CButton,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CForm,
+  CFormInput,
+  CRow,
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
   CWidgetStatsC,
 } from '@coreui/react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
-  faBell, faPen,
-  faStethoscope, faTrashAlt,
+  faBell,
+  faPen,
+  faStethoscope,
+  faTrashAlt,
   faUserInjured,
   faUserTie,
 } from '@fortawesome/free-solid-svg-icons'
@@ -20,7 +34,6 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
-
   const navigate = useNavigate()
 
   const [categoriesOrders, setCategoriesOrders] = useState([])
@@ -30,7 +43,6 @@ const Dashboard = () => {
   const [agents, setAgents] = useState({})
   const [services, setServices] = useState({})
   const [contactUs, setContactUs] = useState({})
-
 
   const filteredCategoriesOrders = categoriesOrders.filter((categoryOrder) => {
     console.log(categoryOrder)
@@ -47,11 +59,12 @@ const Dashboard = () => {
     }
   }
 
-
   const getUnreadMessagesCount = async () => {
     try {
       console.log(api.getUnreadMessagesCount)
-      const response = await axios.get(api.getUnreadMessagesCount)
+      const response = await axios.get(
+        'https://api.yaabaayapp.com/contactUs/getUnreadMessagesCount',
+      )
       setContactUs(response.data ?? [])
     } catch (e) {
       setContactUs(null)
@@ -96,21 +109,15 @@ const Dashboard = () => {
       navigate(`/admin/${api.goToCategoriesOrders}`)
     } catch (e) {
       console.log(e)
-
     }
   }
 
   useEffect(() => {
-    getUnreadMessagesCount().then((r) => {
-    })
-    getLeadsCount().then((r) => {
-    })
-    getAgentsCount().then((r) => {
-    })
-    getCategoriesCount().then((r) => {
-    })
-    getCategoriesOrdersData().then((r) => {
-    })
+    getUnreadMessagesCount().then((r) => {})
+    getLeadsCount().then((r) => {})
+    getAgentsCount().then((r) => {})
+    getCategoriesCount().then((r) => {})
+    getCategoriesOrdersData().then((r) => {})
   }, [])
 
   return (
@@ -126,10 +133,10 @@ const Dashboard = () => {
                 height={36}
               />
             }
-            className='mb-3'
-            color='danger'
+            className="mb-3"
+            color="danger"
             progress={{ color: 'danger', value: 100 }}
-            text='Leads'
+            text="Leads"
             title={
               <strong>
                 <p style={{ color: '#F8F0E3' }}>Leads</p>
@@ -148,10 +155,10 @@ const Dashboard = () => {
                 height={36}
               />
             }
-            className='mb-3'
-            color='dark'
+            className="mb-3"
+            color="dark"
             progress={{ color: 'dark', value: 100 }}
-            text='Agents'
+            text="Agents"
             title={
               <strong>
                 <p style={{ color: '#F8F0E3' }}>Agents</p>
@@ -170,10 +177,10 @@ const Dashboard = () => {
                 height={36}
               />
             }
-            className='mb-3'
-            color='success'
+            className="mb-3"
+            color="success"
             progress={{ color: 'success', value: 100 }}
-            text='Services'
+            text="Services"
             title={
               <strong>
                 <p style={{ color: '#F8F0E3' }}>Services</p>
@@ -192,10 +199,10 @@ const Dashboard = () => {
                 height={36}
               />
             }
-            className='mb-3'
-            color='info'
+            className="mb-3"
+            color="info"
             progress={{ color: 'info', value: 100 }}
-            text='Services'
+            text="Services"
             title={
               <strong>
                 <p style={{ color: '#F8F0E3' }}>Inbox</p>
@@ -208,14 +215,14 @@ const Dashboard = () => {
 
       <CRow>
         <CCol xs={12}>
-          <CCard className='mb-6'>
+          <CCard className="mb-6">
             <CCardHeader>
-              <CCol xs='12'>
+              <CCol xs="12">
                 <strong>Latest 10 Leads</strong>
                 <CFormInput
                   style={{ float: 'right', display: 'block', width: '40%' }}
-                  type='search'
-                  placeholder='Search Latest Leads...'
+                  type="search"
+                  placeholder="Search Latest Leads..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -223,7 +230,6 @@ const Dashboard = () => {
                 {/*         style={{ float: 'right', display: 'block', width: '20%' }} className='mb-2'>*/}
                 {/*  Go to Control*/}
                 {/*</CButton>*/}
-
               </CCol>
             </CCardHeader>
             <CCardBody>
@@ -231,35 +237,35 @@ const Dashboard = () => {
                 <CTable>
                   <CTableHead>
                     <CTableRow>
-                      <CTableHeaderCell scope='col'>#</CTableHeaderCell>
-                      <CTableHeaderCell scope='col'>Order ID</CTableHeaderCell>
-                      <CTableHeaderCell scope='col'>Service</CTableHeaderCell>
-                      <CTableHeaderCell scope='col'>User</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">#</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Order ID</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Service</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">User</CTableHeaderCell>
                       {/*<CTableHeaderCell scope="col">Notes</CTableHeaderCell>*/}
-                      <CTableHeaderCell scope='col'>Register By</CTableHeaderCell>
-                      <CTableHeaderCell scope='col'>Issue Date</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Register By</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Issue Date</CTableHeaderCell>
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
                     {filteredCategoriesOrders != null &&
-                    filteredCategoriesOrders.length > 0 &&
-                    filteredCategoriesOrders.map((categoryOrder, index) => {
-                      // categories.map((category, index) => {
-                      return (
-                        <CTableRow id={`categoryOrder-${categoryOrder._id}`} key={index}>
-                          <CTableHeaderCell scope='row'>{index + 1}</CTableHeaderCell>
-                          <CTableDataCell>{categoryOrder?.orderId}</CTableDataCell>
-                          <CTableDataCell>{categoryOrder.categoryName}</CTableDataCell>
-                          <CTableDataCell>{`${categoryOrder.userName} - ${
-                            categoryOrder.userMobile || 'No Mobile'
-                          }`}</CTableDataCell>
-                          {/*<CTableDataCell>{categoryOrder.notes || '-'}</CTableDataCell>*/}
-                          <CTableDataCell>{`${categoryOrder?.registerBy || '-'}`}</CTableDataCell>
-                          <CTableDataCell>{categoryOrder.createdAt}</CTableDataCell>
-                        </CTableRow>
-                      )
-                      // })
-                    })}
+                      filteredCategoriesOrders.length > 0 &&
+                      filteredCategoriesOrders.map((categoryOrder, index) => {
+                        // categories.map((category, index) => {
+                        return (
+                          <CTableRow id={`categoryOrder-${categoryOrder._id}`} key={index}>
+                            <CTableHeaderCell scope="row">{index + 1}</CTableHeaderCell>
+                            <CTableDataCell>{categoryOrder?.orderId}</CTableDataCell>
+                            <CTableDataCell>{categoryOrder.categoryName}</CTableDataCell>
+                            <CTableDataCell>{`${categoryOrder.userName} - ${
+                              categoryOrder.userMobile || 'No Mobile'
+                            }`}</CTableDataCell>
+                            {/*<CTableDataCell>{categoryOrder.notes || '-'}</CTableDataCell>*/}
+                            <CTableDataCell>{`${categoryOrder?.registerBy || '-'}`}</CTableDataCell>
+                            <CTableDataCell>{categoryOrder.createdAt}</CTableDataCell>
+                          </CTableRow>
+                        )
+                        // })
+                      })}
                   </CTableBody>
                 </CTable>
               </CForm>

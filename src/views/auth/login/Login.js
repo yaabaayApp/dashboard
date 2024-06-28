@@ -1,4 +1,4 @@
-import React, {useEffect, useState,} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CAlert,
@@ -17,43 +17,45 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import logoImg from '../../../assets/logo-main.png'
-import userStore from "../../../store/user";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import api from "../../../api/api";
+import userStore from '../../../store/user'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import api from '../../../api/api'
 
 const Login = () => {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   //const [user] = userStore(state => [state.user])
-  const setUserData = userStore(state => state.setUserData)
+  const setUserData = userStore((state) => state.setUserData)
 
-  const [alertShow, setAlertShow] = useState(false);
-  const [alertText, setAlertText] = useState('');
+  const [alertShow, setAlertShow] = useState(false)
+  const [alertText, setAlertText] = useState('')
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   useEffect(() => {
-    let { state } = JSON.parse(localStorage.getItem('user'));
-    if (state && state?.user?.role === 'admin'){
-      setUserData(state.user);
-      navigate('/admin/dashboard');
+    let { state } = JSON.parse(localStorage.getItem('user'))
+    if (state && state?.user?.role === 'admin') {
+      setUserData(state.user)
+      navigate('/admin/dashboard')
     }
   }, [])
 
-
   const adminLogin = async () => {
     try {
-      setAlertShow(false);
-      const response = await axios.post(`${api.adminSignIn}`, {username, password});
-      console.log(response?.data);
-      setUserData(response?.data?.user);
-      navigate('/admin/dashboard');
+      setAlertShow(false)
+      try {
+        const response = await axios.post(`${api.adminSignIn}`, { username, password })
+        console.log(response?.data)
+        setUserData(response?.data?.user)
+      } catch (error) {
+        console.log(error)
+      }
+      navigate('/admin/dashboard')
     } catch (e) {
-      setAlertText(e.response?.data?.message);
-      setAlertShow(true);
+      setAlertText(e.response?.data?.message)
+      setAlertShow(true)
     }
   }
 
@@ -64,8 +66,7 @@ const Login = () => {
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
-
-                { alertShow && <CAlert className={'alert alert-danger'}>{alertText}</CAlert> }
+                {alertShow && <CAlert className={'alert alert-danger'}>{alertText}</CAlert>}
 
                 <CCardBody>
                   <CForm>
@@ -75,9 +76,11 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" name="username" value={username}
-                                  onChange={(e) => setUsername(e.target.value)}
-
+                      <CFormInput
+                        placeholder="Username"
+                        name="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                       />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
@@ -87,16 +90,14 @@ const Login = () => {
                       <CFormInput
                         type="password"
                         value={password}
-                        onChange={(e) =>  setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                         autoComplete="current-password"
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton
-                          onClick={() => adminLogin()}
-                          color="dark" className="px-4">
+                        <CButton onClick={() => adminLogin()} color="dark" className="px-4">
                           Login
                         </CButton>
                       </CCol>
