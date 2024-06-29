@@ -5,7 +5,7 @@ const contactUsApi = `${baseUrl}contactUs`
 const contentApi = `${baseUrl}content`
 const categoryApi = `${baseUrl}categories`
 const categoryOrderApi = `${baseUrl}categoriesOrder`
-const notification = `${baseUrl}notifications`
+const notification = `${baseUrl}/notifications`
 //CONTROL PANEL
 // const controlPanel = `/${cpBaseUrl}`
 
